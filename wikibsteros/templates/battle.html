@@ -1,0 +1,84 @@
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section id="services">
+    <div class="container">
+        <div style="padding-top: 3em"></div>
+        {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-info alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ msg.message }}
+        </div>
+        <br />
+        {% endfor %}
+        {% endif %}
+        <form method="POST" action="{% url 'wikibsteros:battle_result' %}">
+        {% csrf_token %}
+        <h2 class="text-center">{% trans "You are : "%}</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <img src="{% static 'wikibsteros/img/cards/' %}{{lang_web}}/dude.jpeg" height="380" alt="picture">
+                    {% autoescape off %}
+                    <p class="mb-3"></p>
+                    {% endautoescape %}
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" checked> {% trans "A dude !" %} </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <img src="{% static 'wikibsteros/img/cards/' %}{{lang_web}}/angelina.jpeg" height="380" alt="picture">
+                    {% autoescape off %}
+                    <p class="mb-3"></p>
+                    {% endautoescape %}
+                    <div class="radio">
+                            <label><input type="radio" name="optradio" checked> {% trans "A girl !" %} </label>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 4em">
+        <h2 class="text-center">{% trans "Select only <b>four</b> cards" %} :</h2>
+        <div class="row">
+            {% for key, val in cards.items %}
+            <div class="col-lg-3 col-md-3 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <img src="{% static 'wikibsteros/img/cards/' %}{{lang_web}}/{{ val }}" height="380" alt="picture">
+                    {% autoescape off %}
+                    <p class="mb-3"></p>
+                    <input class="single-checkbox" type="checkbox" name="checkbox" value="{{ key }}"> {{ key }}<br>
+                    {% endautoescape %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-lg-3 col-md-3 text-center">
+                    <div class="service-box mt-5 mx-auto">
+                        <img src="{% static 'wikibsteros/img/VS.png' %}" height="180" alt="picture">
+                        {% autoescape off %}
+                        <p class="mb-3"></p>
+                        {% endautoescape %}
+                    </div>
+                </div>  
+            <div class="col-lg-3 col-md-3 text-center">
+                    <div class="service-box mt-5 mx-auto">
+                        <img src="{% static 'wikibsteros/img/cards/' %}{{lang_web}}/king.jpg" height="380" alt="picture">
+                        {% autoescape off %}
+                        <p class="mb-3"></p>
+                        {% endautoescape %}
+                    </div>
+                </div>
+        </div>
+        <div style="padding-top: 4em"></div>
+        <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Go !">
+            </div>
+        
+        </form>
+    </div>
+</section>
+{% include 'footer.html' %}
+<script src="{% static 'wikibsteros/js/battle.js' %}"></script>

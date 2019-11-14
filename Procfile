@@ -1,0 +1,1 @@
+web: gunicorn Websteros_app.wsgi --log-file -

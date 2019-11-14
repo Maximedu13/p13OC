@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section class="bg-light">
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+        <h1>{% trans "TOP 3 characters" %} ⭐</h1>
+        <hr class="my-4">
+        <div class="card-deck">
+            {% for c in characters %}
+            <div class="card">
+                <img src="{{ c.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'wikibsteros:character' c.id  %}">
+                        <h5 class="card-title">{{ c.name }}</h5>
+                    </a>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">⭐ {{ c.note|floatformat:2 }}</small></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="padding-top:50px"></div>
+        <h1>{% trans "TOP 3 cities" %} ⭐</h1>
+        <hr class="my-4">
+        <div class="card-deck">
+            {% for c in cities %}
+            <div class="card">
+                <img src="{% static 'wikibsteros/img/' %}{{ c.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{% url 'wikibsteros:city' c.id  %}">
+                        <h5 class="card-title">{{ c.name }}</h5>
+                    </a>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">🔺{{ c.population|intcomma }}
+                            {% trans "inhabitants" %}</small></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="padding-top:50px"></div>
+        <h1>{% trans "TOP 3 houses" %} ⭐</h1>
+        <hr class="my-4">
+        <div class="card-deck">
+            {% for i in "123" %}
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="padding-top:50px"></div>
+    </div>
+</section>
+{% include 'footer.html' %}

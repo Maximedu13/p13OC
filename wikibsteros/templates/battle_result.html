@@ -1,0 +1,122 @@
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section id="services">
+    <div class="container">
+        <div style="padding-top: 3em"></div>
+        <h2 class="text-center">
+            {% if status_game == True %}
+            {% trans "You won" %}
+            <br />
+            <figure class="figure">
+                <img src="{% static 'wikibsteros/img/Game-of-Thrones-filming-locations-meteora-greece.jpg' %}"
+                    class="figure-img img-fluid rounded"
+                    alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption"><small><em>
+                            {% blocktrans %}Your team wins. Threat is down. Some semblance of peace
+                            has been maintained in Westeros. Congrats !
+                            {% endblocktrans %}</em></small></figcaption>
+            </figure>
+            <br />
+            {% else %}
+            {% trans "You lost" %}
+            <br />
+            <figure class="figure">
+                <img src="{% static 'wikibsteros/img/night_king.jpeg' %}" class="figure-img img-fluid rounded"
+                    alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption"><small><em>
+                            {% blocktrans %}The Night King wins.
+                            You have failed to prevent the Night King from invading Westeros.
+                            Zombie hordes swell the ranks of his army and
+                            devastate everything in its path. All kinds of life on Westeros is reduced to nothing.
+                            From now on, The Night King sits on the Iron Throne.
+                            {% endblocktrans %}</em></small></figcaption>
+            </figure>
+            <br />
+            {% endif %}
+        </h2>
+        <div style="padding-top: 3em"></div>
+        <h2 class="text-center">{% trans "Chosen cards : "%}</h2>
+        <div class="row">
+            {% for s in selected %}
+            <div class="col-lg-3 col-md-3 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <img src="{% static 'wikibsteros/img/cards/' %}{{lang_web}}/{{ cards|return_item:s }}" height="380"
+                        alt="picture">
+                    {% autoescape off %}
+                    <p class="mb-3 text-center">{{ s }}</p>
+                    {% endautoescape %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="padding-top: 4em"></div>
+        <h2 class="text-center">{% trans "Battle report" %} :</h2>
+        <div style="padding-top: 3em"></div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm">
+                    <p><em><b>{% trans "Round" %} 0 - {% trans "Start" %}</b></em></p>
+                    {% for i in range %}
+                    <p>{{ selected|index:i }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{% loc_pandas_char family selected|index:i 'Health Points' %} {% trans "HP" %}</b></p>
+                    {% endfor %}
+                    <p>{% trans "Night King" %}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{% loc_pandas_char family 'Night King' 'Health Points' %} {% trans "HP" %}</b></p>
+                </div>
+                {% for i in range_one %}
+                <div class="col-sm">
+                    <p><em><b>{% trans "Round" %} {{ i|add:"1" }}</b></em></p>
+                    <p>{{ selected.0 }}</p>
+                    <p> <img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_1_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.1 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_2_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.2 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_3_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.3 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_4_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{% trans "Night King" %}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ hp_night_king_list|index:i }} {% trans "HP" %}</b></p>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="padding-top: 3em"></div>
+            <div class="row text-center">
+                {% for i in range_two %}
+                <div class="col-sm">
+                    <p><em><b>{% trans "Round" %} {{ i|add:"1" }}</b></em></p>
+                    <p>{{ selected.0 }}</p>
+                    <p> <img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_1_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.1 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_2_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.2 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_3_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{{ selected.3 }}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ char_4_hp_list|index:i }} {% trans "HP" %}</b></p>
+                    <p>{% trans "Night King" %}</p>
+                    <p><img src="{% static 'wikibsteros/img/11082-growing-heart.png' %}" style="height: 25px">
+                        <b>{{ hp_night_king_list|index:i }} {% trans "HP" %}</b></p>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="padding-top: 3em"></div>
+            <div class="text-center">
+                <a href="{% url 'wikibsteros:battle' %}" class="btn btn-dark"">{% trans "Play again" %}</a>
+            </div>
+            <div style=" padding-top: 3em"></div>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}

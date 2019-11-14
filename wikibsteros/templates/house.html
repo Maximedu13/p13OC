@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section class="bg-light">
+    <div style="padding-top:50px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                1 of 3
+            </div>
+            <div class="col-8">
+                <h2>{{ this_house.name }}</h2>
+                <hr />
+                <p>ds</p>
+            </div>
+            <div class="col-3 bg-danger rounded">
+                <ul>
+                    <li>{{ this_house.name }}</li>
+                    <li>{{ this_house.gender }}</li>
+                    {% if this_house.culture %}
+                    <li>
+                        {{ this_house.culture }}
+                    </li>
+                    {% endif %}
+                    {% if this_house.born %}
+                    <li>
+                        {{ this_house.born }}
+                    </li>
+                    {% endif %}
+                    {% if this_house.died %}
+                    <li>
+                        {{ this_house.died }}
+                    </li>
+                    {% endif %}
+                    {% if this_house.playedBy and  this_house.playedBy != "['']" %}
+                    <li>{{ this_house.playedBy }}</li>
+                    {% endif %}
+                    {% if this_house.father %}
+                    <li>{{ this_house.father }}</li>
+                    {% endif %}
+                    {% if this_house.mother %}
+                    <li>{{ this_house.mother }}</li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div style="padding-top:50px"></div>
+</section>
+{% include 'footer.html' %}

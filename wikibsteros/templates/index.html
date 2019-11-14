@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+<!-- Bootstrap core CSS -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+{% autoescape off %}
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(function () {
+      $('option[value=0]').attr('disabled', 'disabled');
+      $('.basicAutoComplete').autocomplete({
+        source: "autocomplete/",
+        minLength: 3,
+      });
+    });
+
+    $('.form-chat button').on('click', function (event) {
+      event.preventDefault();
+      alert($('textarea[name=chat]').val());
+      $.ajax({
+        url: "{% url 'wikibsteros:index' %}",
+        type: 'POST',
+        data: {
+          'chat': $('textarea[name=chat]').val(),
+        },
+        type: 'POST',
+        success: function (response) {
+          $("textarea[name=messages]").html(response);
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
+    });
+
+  });
+</script>
+{% endautoescape %}
+
+<body id="page-top">
+  {% include 'nav.html' %}
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <br />
+        {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-info alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{ msg.message }}
+        </div>
+        <br />
+        {% endfor %}
+        {% endif %}
+        <h1 class="mx-auto my-0 text-uppercase">Websteros</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">{% trans "Dornish Oasis" %}</h2>
+        <form id="autocomplete" action="{% url 'wikibsteros:wikibsteros_search' %}" method="get" accept-charset="utf-8">
+          {% csrf_token %}
+          <input class="form-control basicAutoComplete" type="text" autocomplete="off"
+            data-url="testdata/test-select-simple.json" placeholder="{% trans 'Search Wikibsteros...' %}"
+            aria-label="Search" name="query">
+          <br />
+          <input class="btn btn-primary" type="submit" value="Go !">
+      </div>
+      </form>
+    </div>
+    </div>
+  </header>
+  <div class="float-right">
+    <a class="nav-link dropdown-toggle" href="" id="dropdown09" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> {% trans "English" %}</a>
+    <div class="dropdown-menu" aria-labelledby="dropdown09">
+      <a class="dropdown-item" href="/en"><span class="flag-icon flag-icon-us"></span> {% trans "English" %}</a>
+      <a class="dropdown-item" href="/fr"><span class="flag-icon flag-icon-fr"></span> {% trans "French" %}</a>
+      <a class="dropdown-item" href="/cl"><span class="flag-icon flag-icon-cl"></span> {% trans "Spanish" %}</a>
+    </div>
+  </div>
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div style="margin-bottom: 7em"></div>
+    <div class="container">
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="{% static 'wikibsteros/img/maxresdefault-11.jpg' %}" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>{% trans "Discover Game of Thrones History" %}</h4>
+            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
+              project - even commercial projects! Download it, customize it, and publish your website!</p>
+          </div>
+        </div>
+      </div>
+      <div class="post">
+        <!--- \\\\\\\Post-->
+        <blockquote class="blockquote text-center">
+          <p class="mb-0"> {% trans "Latest <kbd>posts</kbd>" %} - <a
+              href="{% url 'wikibsteros:articles' %}">{% trans "View all the <kbd>articles</kbd>" %}</a></p>
+        </blockquote>
+        {% for f in three_recent_articles %}
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img src="{% return_image f.autor_id %}" height="70px" width="70px" class="rounded">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">
+                    {% return_char f.autor_id %}
+                  </div>
+                  <div class="h7 text-muted">
+                    {% get_the_location_from_the_char_id f.autor_id %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <a class="card-link" href="{% url 'wikibsteros:article' f.id %}">
+              <h5 class="card-title">
+                {{ f.title }}
+              </h5>
+            </a>
+            <p class="card-text">
+              {% autoescape off %}
+              {% blocktrans with f.content|truncatechars:510 as content %}
+              {{ content }}
+              {% endblocktrans %}
+
+              {% endautoescape %}
+              <a href="{% url 'wikibsteros:article' f.id %}">{% trans "Read more" %}</a>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i>{% trans "Like" %}</a>
+            <a href="{% url 'wikibsteros:article' f.id %}" class="card-link"><i
+                class="fa fa-comment"></i>{% trans "Comment" %}</a>
+          </div>
+        </div>
+        <br />
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Project Two Row -->
+    <div class="row justify-content-center no-gutters">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="{% static 'wikibsteros/img/Melisandre_burns_the_letter.png' %}" alt="">
+      </div>
+      <div class="col-lg-6 order-lg-first">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-right">
+              <h4 class="text-white"><a class="nav-link js-scroll-trigger text-white"
+                  href="#signup">{% trans "Create an account" %}</a></h4>
+              <p class="mb-0 text-white-50">
+                {% trans "Appeal to the Melisandre's powerful magic to create an account and enjoy all the features of Websteros" %}
+              </p>
+              <hr class="d-none d-lg-block mb-0 mr-0">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Project One Row -->
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-6">
+        <img class="img-fluid"
+          src="{% static 'wikibsteros/img/wallpaper.wiki-Download-Free-Desert-Wallpaper-PIC-WPE0010546.jpg' %}" alt="">
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
+              <h4 class="text-white"><a class="nav-link js-scroll-trigger text-white"
+                  href="{% url 'wikibsteros:weather' %}">{% trans "Consult weather forecasts" %}</a></h4>
+              <p class="mb-0 text-white-50">
+                {% trans "Snowstorm expected to hit the North. Cloudy weather with sunny spells on the whole of the Crownlands. Heatwave warnings issued in the Dornish desert...Get the Westeros weather forecast." %}
+              </p>
+              <hr class="d-none d-lg-block mb-0 ml-0" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Two Row -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{% static 'wikibsteros/img/battle.png' %}" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white"><a href="{% url 'wikibsteros:battle' %}"
+                    class="text-white">{% trans 'Face the Night King' %}</a> </h4>
+                <p class="mb-0 text-white-50">
+                  {% trans "Gather your forces and make the right strategic choices to save Westeros from Night King's ill-fated designs." %}
+                </p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Project One Row -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="{% static 'wikibsteros/img/snake.jpeg' %}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white"><a href="{% url 'wikibsteros:maggy' %}"
+                    class="text-white">{% trans "Maggy the Frog" %}</a></h4>
+                <p class="mb-0 text-white-50">
+                  {% trans "Discover your daily Horoscope thanks to Maggy the Frog." %}
+                </p>
+                <hr class="d-none d-lg-block mb-0 ml-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project Two Row -->
+        <div class="row justify-content-center no-gutters">
+          <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'wikibsteros/img/three-eyed-raven-113734-117965.jpg' %}" alt="">
+          </div>
+          <div class="col-lg-6 order-lg-first">
+            <div class="bg-black text-center h-100 project">
+              <div class="d-flex h-100">
+                <div class="project-text w-100 my-auto text-center text-lg-right">
+                  <h4 class="text-white"><a class="nav-link js-scroll-trigger text-white"
+                      href="#chat">{% trans "Websteros chat room" %}</a></h4>
+                  <p class="mb-0 text-white-50">
+                    {% trans "Join our ranks and chat in real time with other players. Required Registration. Have fun !" %}
+                  </p>
+                  <hr class="d-none d-lg-block mb-0 mr-0">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+  <!-- About Section -->
+  <section class="text-center">
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-black mb-4">{% trans "Current situation of the Crowns" %}</h2>
+          <h5 class="text-black mb-4">{% trans "Currently sits on the <b> Iron Throne </b>" %}</h5>
+          <figure class="figure">
+            <img class="rounded-circle" src="{% static 'wikibsteros/img/Iron_throne.jpg' %}" height="150px"
+              width="150px">
+          </figure>
+          <figure class="figure">
+            <img class="rounded-circle" src="{% static 'wikibsteros/img/brandon.png' %}" height="150px" width="150px">
+          </figure>
+          <h5 class="text-black mb-4">
+            <b>{{ names_sovereings.0 }} </b>
+            {% trans " of the House " %} <b>Stark</b>,
+            {% trans "First of His Name, King of the Andals and the First Men, Protector of the Seven Kingdoms" %}
+            {% trans "for"  %}
+            <b>{{ days_passed.0 }} {% trans "days" %}</b></h5>
+          <div style="margin-bottom: 3em"></div>
+        </div>
+        <div class="container">
+          <div class="row">
+            {% for i in range_one %}
+            <div class="col-sm">
+              <figure class="figure">
+                <h6 class="text-black mb-4">
+                  <img class="rounded-circle" src="{% static 'wikibsteros/img/' %}{{ names_landscapes|index:i }}"
+                    height="100px" width="100px">
+                  <img class="rounded-circle" src="{% static 'wikibsteros/img/' %}{{ names_images|index:i }}"
+                    height="100px" width="100px">
+                  <div style="margin-bottom: 1em"></div>
+                  <b>{{ names_sovereings|index:i  }}</b>{% trans " of the House " %}
+                  <b> {{ names_houses|index:i }}</b>,
+                  {% trans "currently reigning over" %}
+                  {{ names_regions|index:i }}
+                  {% trans "for" %}
+                  <b>{{ days_passed|index:i }} {% trans "days" %} </b>
+                </h6>
+              </figure>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="row">
+            {% for i in range_two %}
+            <div class="col-sm">
+              <figure class="figure">
+                <h6 class="text-black mb-4">
+                  <img class="rounded-circle" src="{% static 'wikibsteros/img/' %}{{ names_landscapes|index:i }}"
+                    height="100px" width="100px">
+                  <img class="rounded-circle" src="{% static 'wikibsteros/img/' %}{{ names_images|index:i }}"
+                    height="100px" width="100px">
+                  <div style="margin-bottom: 1em"></div>
+                  <b>{{ names_sovereings|index:i  }}</b>{% trans " of the House " %}
+                  <b> {{ names_houses|index:i }}</b>,
+                  {% trans "currently reigning over" %}
+                  {{ names_regions|index:i }}
+                  {% trans "for" %}
+                  <b>{{ days_passed|index:i }} {% trans "days" %}</b>
+                </h6>
+              </figure>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Signup Section -->
+  <section id="signup" class="signup-section">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="col-md-10 col-lg-8 mx-auto text-center">
+            {% if user.is_authenticated %}
+            <h3 class="text-white mb-5 text-center">{% trans "You are logged in as" %} {{ user.username }}</h3>
+            <h3 class="text-white mb-5 text-center">{% trans "Contact Us" %}</h3>
+            <form method="POST" class="form-inline d-flex">
+              {% csrf_token %}
+              {{ form_3.from_email }}
+              <div style="margin-bottom: 7em"></div>
+              {{ form_3.subject }}
+              {{ form_3.message }}
+              <br/>
+              <div style="padding-bottom: 17em"></div>
+              <br/>
+              <div style="padding-left: 16em"></div>
+              <br/>
+              <button type="submit" class="btn btn-primary">{% trans "&nbsp Send &nbsp" %}</button>
+            </form>
+          </div>
+          {% else %}
+        </div>
+        <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <form method="POST" class="form-inline d-flex">
+            <h2 class="text-white mb-5">{% trans "Login &nbsp&nbsp&nbsp" %}</h2>
+            {% csrf_token %}
+            <label for="{{ form.username.id_for_label }}"></label>
+            {{ form_1.user }}
+            <label for="{{ form.password.id_for_label }}"></label>
+            {{ form_1.mdp }}
+            <div style="margin-bottom: 7em"></div>
+            <button type="submit" class="btn btn-primary">{% trans "&nbsp Login &nbsp" %}</button>
+          </form>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <form method="POST" class="form-inline d-flex">
+            <h2 class="text-white mb-5">{% trans "Create an account" %}</h3>
+              {% csrf_token %}
+              <label for="{{ form.email.id_for_label }}"></label>
+              {{ form_2.email }}
+              <label for="{{ form.username.id_for_label }}"></label>
+              {{ form_2.user_name }}
+              <div style="margin-bottom: 7em"></div>
+              <label for="{{ form.password.id_for_label }}"></label>
+              {{ form_2.password }}
+              <div class="container">
+                <div style="margin-bottom: 2em"></div>
+                <div class="row">
+                  <div class="col">
+                    {{ form_2.field_1 }}
+                  </div>
+                  <div class="w-100"></div>
+                  <div style="margin-bottom: 2em"></div>
+                  <div class="col text-center">
+                    {{ form_2.field_2 }}
+                  </div>
+                </div>
+              </div>
+              <label for="{{ form.checkbox.id_for_label }}" class="text-white">{% trans "I am not a White Walker" %}
+                &nbsp</label>
+              {{ form_2.checkbox }}
+              <div style="margin-bottom: 3em"></div>
+              <div class="col-md-12">
+                <div class="g-recaptcha" data-sitekey="6Le6fr0UAAAAAJUw_-QHXsPzqNuPDOKPOUU_OUEY" required></div>
+                <div style="margin-bottom: 2em"></div>
+                
+              </div>
+              <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+        </div>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  <section class="bg-black">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm text-light">
+          {% for i in hours_left %}
+          <b>{{ i.0 }}</b>
+          <br /><br />
+          {{ i.1 }}
+          {{ i.2 }}
+          {{ i.3 }}
+          {{ i.4 }}
+          <br /><br />
+          <div class="d-inline bg-light rounded text-dark" style="padding: 3%">
+            {{ i.5.0 }}
+            {{ i.5.1 }}
+          </div>
+          &nbsp;:
+          <div class="d-inline bg-dark rounded text-white" style="padding: 3%">
+            {{ i.5.3 }}
+            {{ i.5.4 }}
+          </div>
+          &nbsp;:
+          <div class="d-inline bg-light rounded text-dark" style="padding: 3%">
+            {{ i.5.6 }}
+            {{ i.5.7 }}
+          </div>
+          &nbsp;
+          {{ i.5.9 }}
+          {{ i.5.10 }}
+          <br /><br /><br /><br />
+          {% endfor %}
+        </div>
+        <div class="col-sm text-light">
+          {% trans "About us" %}
+          <br />
+          <div class="card-body text-center">
+            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">{% trans "Address" %}</h4>
+            <hr class="my-4">
+            <div class="small text-light">{% trans "FRANCE 🇫🇷" %}</div>
+          </div>
+          <div class="card-body text-center">
+            <i class="fas fa-envelope text-primary mb-2"></i>
+            <h4 class="text-uppercase m-0">{% trans "Email" %}</h4>
+            <hr class="my-4">
+            <div class="small text-light">
+              <a href="mailto:websteros@yahoo.com">websteros@yahoo.com</a>
+            </div>
+          </div>
+          <br />
+          {% trans "Find us on" %}
+          <br />
+          <br />
+
+          <!-- Add font awesome icons -->
+          <a href="https://twitter.com/Websteros4" class="fa fa-twitter" target="_blank"></a>
+
+        </div>
+        <div class="col-sm text-light">
+          {% for i in hours_right %}
+          <b>{{ i.0 }}</b>
+          <br /><br />
+          {{ i.1 }}
+          {{ i.2 }}
+          {{ i.3 }}
+          {{ i.4 }}
+          <br /><br />
+          <div class="d-inline bg-light rounded text-dark" style="padding: 3%">
+            {{ i.5.0 }}
+            {{ i.5.1 }}
+          </div>
+          &nbsp;:
+          <div class="d-inline bg-dark rounded text-white" style="padding: 3%">
+            {{ i.5.3 }}
+            {{ i.5.4 }}
+          </div>
+          &nbsp;:
+          <div class="d-inline bg-light rounded text-dark" style="padding: 3%">
+            {{ i.5.6 }}
+            {{ i.5.7 }}
+          </div>
+          &nbsp;
+          {{ i.5.9 }}
+          {{ i.5.10 }}
+          <br /><br /><br /><br />
+          {% endfor %}
+        </div>
+        <div class="container bg-black" id="chat">
+          <div class="row" style="width: 60%; margin-left: 20%">
+            <div class="col-sm">
+              <form method="POST" class="form-container" action="">
+                {% csrf_token %}
+                <h3 class="text-white mb-5 text-center">{% trans "Websteros chat room" %}</h3>
+                <div class="input-group">
+
+                  <textarea class="form-control rounded-0 p-0" aria-label="With textarea" name="messages"
+                    readonly="readonly">
+
+                    {% for f in all_chat_messages %}
+                      {{  f.created }}
+                        {{ f.user }} : {{ f.message }}
+                      {% endfor %}
+                  </textarea>
+
+                  {% if number_of_active_users > 0 %}
+                  <div class="input-group-prepend">
+                    <span class="input-group-text d-flex flex-column bd-highlight rounded-0 overflow-auto">
+                      {% for user in list_of_onlines %}
+                      <ul style="list-style-type:none; padding: 0">
+                        <li>
+                          <img src="{% static 'wikibsteros/img/304286.svg' %}">
+                          <span data-toggle="tooltip" data-placement="right" title="{{ user }}">
+                            {{ user|truncatechars:8 }}
+                          </span>
+                        </li>
+                      </ul>
+                      {% endfor %}
+                    </span>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="form-chat">
+                  {{ form_4.chat }}
+                  <button type="submit"
+                    style="background:url('/static/wikibsteros/img/raven.gif'); background-size: 90%">
+                    <div style="opacity: 0.3">
+                      {% trans "Send" %}
+                    </div>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  </section>
+  {% include 'footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand text-white" href="{% url 'wikibsteros:index' %}">{% trans "Home" %}</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'wikibsteros:universe' %}">{% trans "Universe" %}<span class="sr-only">(current)</span></a>
+            </li>
+            
+        </ul>
+        <a class="nav-link dropdown-toggle" href="" id="dropdown09" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> {% trans "English" %}</a>
+        
+      <div class="dropdown-menu" aria-labelledby="dropdown09">
+        {% if the_path|length == 1 %}
+        <a class="dropdown-item" href="/en/{% for c in the_path %}{{ c }}{% endfor %}"><span class="flag-icon flag-icon-us"></span> {% trans "English" %}</a>
+        {% else %}
+        <a class="dropdown-item" href="/en/{% for c in the_path %}{{ c }}/{% endfor %}"><span class="flag-icon flag-icon-us"></span> {% trans "English" %}</a>
+        {% endif %}
+        {% if the_path|length == 1 %}
+        <a class="dropdown-item" href="/fr/{% for c in the_path %}{{ c }}{% endfor %}"><span class="flag-icon flag-icon-fr"></span> {% trans "French" %}</a>
+        {% else %}
+        <a class="dropdown-item" href="/fr/{% for c in the_path %}{{ c }}/{% endfor %}"><span class="flag-icon flag-icon-fr"></span> {% trans "French" %}</a>
+        {% endif %}
+        {% if the_path|length == 1 %}
+        <a class="dropdown-item" href="/cl/{% for c in the_path %}{{ c }}{% endfor %}"><span class="flag-icon flag-icon-cl"></span> {% trans "Spanish" %}</a>
+        {% else %}
+        <a class="dropdown-item" href="/cl/{% for c in the_path %}{{ c }}/{% endfor %}"><span class="flag-icon flag-icon-cl"></span> {% trans "Spanish" %}</a>
+        {% endif %}
+    </div>
+    
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="{% trans 'Look for something' %}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans "Search" %}</button>
+        </form>
+    </div>
+</nav>

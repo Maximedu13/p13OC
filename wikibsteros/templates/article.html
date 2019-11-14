@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section class="bg-light">
+    <div style="padding-top:50px"></div>
+    <div class="container">
+        <div class="card gedf-card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="mr-2">
+                            <img src="{% return_image this_article.autor_id %}" height="70px" width="70px"
+                                class="rounded">
+                        </div>
+                        <div class="ml-2">
+                            <div class="h5 m-0">
+                                {% return_char this_article.autor_id %}
+                            </div>
+                            <div class="h7 text-muted">
+                                {% get_the_location_from_the_char_id this_article.autor_id %}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                <div class="h6 dropdown-header">Configuration</div>
+                                <a class="dropdown-item" href="#">Save</a>
+                                <a class="dropdown-item" href="#">Hide</a>
+                                <a class="dropdown-item" href="#">Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ this_article.title }}
+                </h5>
+                <p class="card-text">
+                    {% autoescape off %}
+                    {% trans this_article.content %}
+                    {% endautoescape %}
+                </p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="card-link"><i class="fa fa-gittip"></i>{% trans "Like" %}</a>
+            </div>
+
+        </div>
+        <div style="padding-top:50px"></div>
+        <h5><a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">{% trans "Comments" %}({{ number_of_comments }})</a></h5>
+        <div class="collapse" id="collapseExample">
+            {% for c in comments %}
+            <div class="card card-body"> 
+                    <b>{{ c.message }}</b>
+                    <br/>
+                    <small>
+                    {% trans "By" %} <em>{% return_char c.user_id %}</em>
+                    <br/>
+                    {{ c.created }}</small>
+            </div>
+            <br/>
+            {% endfor %}
+        </div>
+        <div class="container w-50">
+            <!-- CHANGE THE URL HERE -->
+            <form action="{% url 'wikibsteros:add_a_comment_article' this_article.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea name="message" class="form-control" id="message" rows="5"
+                        placeholder="{% trans 'Post a comment' %}" required></textarea>
+                </div>
+                {% if user.is_authenticated %}
+                <button type="submit" class="btn btn-primary float-right">{% trans "Submit" %}</button>
+                {% else %}
+                <div class="alert alert-danger te" role="alert">
+                    {% trans "You must be logged in to post a comment" %}
+                </div>
+                {% endif %}
+            </form>
+        </div>
+        <div style="padding-top:100px"></div>
+    </div>
+</section>
+{% include 'footer.html' %}

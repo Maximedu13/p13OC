@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section class="bg-light">
+  <div style="padding-top:50px"></div>
+  <div class="container text-center">
+    <h1>{% trans "The North" %}</h1>
+    <hr class="my-4">
+    <div class="row align-items-start">
+      {% for i in "0123" %}
+      <div class="col">
+        <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+        <br />
+        <b>
+          {{ keys|index:i }}
+        </b>
+        <br />
+        {% trans "Temperature" %} :
+        {{ list_of_temp|index:i }}
+        °C
+        <br />
+        {% trans "Weather" %} :
+        {{ list_of_weathers|index:i }}
+        <br />
+        {% trans "Pressure" %} :
+        {{ list_of_pressures|index:i }}
+        hpa
+        <br />
+        {% trans "Humidity" %} :
+        {{ list_of_humidities|index:i }}
+        %
+        <br />
+        {% trans "Wind speed" %} :
+        {{ list_of_winds|index:i }}
+        km/h
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Vale of Arryn" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in "45" %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Riverlands" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in "67" %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Iron Islands" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in "8" %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Crownlands" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in "9" %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Westerlands" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:10 }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:10 }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:10 }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:10 }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:10 }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:10 }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:10 }}
+          km/h
+        </div>
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Stormlands" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:11 }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:11 }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:11 }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:11 }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:11 }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:11 }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:11 }}
+          km/h
+        </div>
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "The Reach" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in range_one %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "Dorne" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in range_two %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+    <div class="container text-center">
+      <h1>{% trans "Essos" %}</h1>
+      <hr class="my-4">
+      <div class="row align-items-start">
+        {% for i in range_three %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+      <div style="padding-top:50px"></div>
+      <div class="row align-items-start">
+        {% for i in range_four %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+      <div style="padding-top:50px"></div>
+      <div class="row align-items-start">
+        {% for i in range_five %}
+        <div class="col">
+          <img src="{% static 'wikibsteros/img/' %}{{ list_of_weathers|index:i }}.svg" height="100px" width="100px">
+          <br />
+          <b>
+            {{ keys|index:i }}
+          </b>
+          <br />
+          {% trans "Temperature" %} :
+          {{ list_of_temp|index:i }}
+          °C
+          <br />
+          {% trans "Weather" %} :
+          {{ list_of_weathers|index:i }}
+          <br />
+          {% trans "Pressure" %} :
+          {{ list_of_pressures|index:i }}
+          hpa
+          <br />
+          {% trans "Humidity" %} :
+          {{ list_of_humidities|index:i }}
+          %
+          <br />
+          {% trans "Wind speed" %} :
+          {{ list_of_winds|index:i }}
+          km/h
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div style="padding-top:50px"></div>
+  </div>
+</section>
+{% include 'footer.html' %}

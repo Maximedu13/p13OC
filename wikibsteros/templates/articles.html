@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<section id="services">
+    <div class="container">
+        <div style="padding-top: 5em;"></div>
+        <div class="post">
+            {% for f in articles %}
+            <div class="card gedf-card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                    <div class="mr-2">
+                                        <img src="{% return_image f.autor_id %}" height="70px" width="70px" class="rounded">
+                                    </div>
+                                    <div class="ml-2">
+                                        <div class="h5 m-0">
+                                            {% return_char f.autor_id %}
+                                        </div>
+                                        <div class="h7 text-muted">
+                                            {% get_the_location_from_the_char_id f.autor_id %}
+                                        </div>
+                                    </div>
+                                </div>
+                        <div>
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                    <div class="h6 dropdown-header">Configuration</div>
+                                    <a class="dropdown-item" href="#">Save</a>
+                                    <a class="dropdown-item" href="#">Hide</a>
+                                    <a class="dropdown-item" href="#">Report</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <a class="card-link" href="{% url 'wikibsteros:article' f.id %}">
+                        <h5 class="card-title">
+                            {{ f.title }}
+                        </h5>
+                    </a>
+                    <p class="card-text">
+                        {% autoescape off %}
+
+
+                        {% trans f.content|truncatechars:510 %}
+                        {% endautoescape %}
+                        <a href="{% url 'wikibsteros:article' f.id %}">{% trans "Read more" %}</a>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link"><i class="fa fa-gittip"></i>{% trans "Like" %}</a>
+                    <a href="#" class="card-link"><i class="fa fa-comment"></i>{% trans "Comment" %}</a>
+                </div>
+            </div>
+
+            <br />
+            <!-- Post /////-->
+        </div>
+        {% endfor %}
+    </div>
+    <div style="padding-top: 5em;"></div>
+    </div>
+</section>
+{% include 'footer.html' %}

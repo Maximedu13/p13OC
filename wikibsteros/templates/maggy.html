@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+{% csrf_token %}
+<script>
+    $(document).ready(function () {
+        $(function () {
+            $('option[value=0]').attr('disabled', 'disabled');
+        });
+        $('button').click(function () {
+            event.preventDefault();
+            $.ajax({
+                url: "{% url 'wikibsteros:maggy' %}",
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    $("span.result").html(response);
+                },
+                error: function (error) {
+                    console.log(error);
+                },
+            });
+        });
+    });
+</script>
+
+<section id="services" class="bg-light">
+    <div class="container">
+        <div style="padding-top: 3em"></div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h2 class="text-center">{% trans "Maggy the Frog" %}</h2>
+            <div style="padding-bottom: 2em"></div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="{% static 'wikibsteros/img/Maggy.jpg' %}" alt="..." class="pull-left mr-2"
+                            style="height: 450px">
+                    </div>
+                    <div class="col-sm">
+                        {% blocktrans %}
+                        <ul style="line-height: 2; list-style-type:none">
+                            <li>Hello, I am <mark> Maggy the Frog</mark>.</li>
+                            <li>I'm a <mark>clairvoyant witch</mark>. I can read your future. </li>
+                            <li>For this reason, <mark>let me taste your blood</mark>.</li>
+                            <li>You just have to pick <mark>your favorite character from Game of Thrones</mark> in the
+                                list below, and <mark>your gender</mark>. </li>
+                            <li>So I could determine <mark>your personality, your qualities, your faults</mark> (You got
+                                plenty !), and predict your future. </li>
+                            <li>But be careful, <mark>you may not like the answers</mark>...</li>
+                        </ul>
+                        {% endblocktrans %}
+                        <form method="POST" class="form-inline d-flex">
+                            {% csrf_token %}
+                            {{ form_voyance.field_1 }}
+                            <div style="margin-bottom: 1em"></div>
+                            {{ form_voyance.character }}
+                            <div style="margin-bottom: 1em"></div>
+                            <button type="submit" class="btn btn-primary">{% trans "&nbsp Send &nbsp" %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom: 2em"></div>
+        </form>
+        <span class="result">
+        </span>
+        <div style="padding-bottom: 2em"></div>
+    </div>
+</section>
+{% include 'footer.html' %}

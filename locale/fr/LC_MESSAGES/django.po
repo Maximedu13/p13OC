@@ -1,0 +1,1025 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-08 21:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: Websteros/settings.py:140 wikibsteros/templates/index.html:78
+#: wikibsteros/templates/index.html:80 wikibsteros/templates/little-nav.html:17
+#: wikibsteros/templates/little-nav.html:21
+#: wikibsteros/templates/little-nav.html:23
+msgid "English"
+msgstr "Anglais"
+
+#: Websteros/settings.py:141 wikibsteros/templates/index.html:81
+#: wikibsteros/templates/little-nav.html:26
+#: wikibsteros/templates/little-nav.html:28
+msgid "French"
+msgstr "Francais"
+
+#: Websteros/settings.py:142 wikibsteros/templates/index.html:82
+#: wikibsteros/templates/little-nav.html:31
+#: wikibsteros/templates/little-nav.html:33
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: account/templates/profile.html:23
+msgid "Declared allegiance to"
+msgstr "A déclaré allégeance à"
+
+#: account/templates/profile.html:26
+msgid "Residing in "
+msgstr "Habitant à"
+
+#: account/templates/profile.html:33
+msgid "About"
+msgstr "À propos"
+
+#: account/templates/profile.html:37
+msgid "Votes"
+msgstr "Votes"
+
+#: account/templates/profile.html:52
+msgid "User Id"
+msgstr "ID utilisateur"
+
+#: account/templates/profile.html:60
+#, fuzzy
+#| msgid "Name : "
+msgid "Name"
+msgstr "Nom : "
+
+#: account/templates/profile.html:68 wikibsteros/templates/index.html:442
+msgid "Email"
+msgstr "Email"
+
+#: account/templates/profile.html:76
+msgid "Date of registration"
+msgstr "Date d‘inscription"
+
+#: account/templates/profile.html:85
+msgid "Country"
+msgstr "Pays"
+
+#: account/templates/profile.html:93
+msgid "City"
+msgstr "Ville"
+
+#: account/templates/profile.html:101
+msgid "State"
+msgstr "Département"
+
+#: wikibsteros/constants.py:5 wikibsteros/templates/weather.html:151
+msgid "The Crownlands"
+msgstr "Les Terres de la Couronne"
+
+#: wikibsteros/constants.py:6 wikibsteros/other_functions.py:39
+#: wikibsteros/templates/weather.html:252
+msgid "The Reach"
+msgstr "Le Bief"
+
+#: wikibsteros/constants.py:8
+msgid "Game of Thrones alternative scenario Season 9: Summary"
+msgstr "Game of Thrones scénario alternatif Saison 9: Résumé"
+
+#: wikibsteros/constants.py:9
+msgid ""
+"In the capital, the new king as well as his advisors face the challenge of "
+"rebuilding Port-Réal and satisfying the surviving population. In the others "
+"Westerosian kingdoms, resentment is far from hcaving calmed down. The "
+"sovereigns Iron Islands and Reach forge an alliance and plot against the "
+"Crown. Sansa, Gendry and Edmure are trying to establish their authority in "
+"the North, Stormlands and Conflans. In the Val, Robin Arryn becomes, against "
+"all waiting a fearsome and respected warrior. Arianne Martell takes power in "
+"Dorne.Beyond the Wall, Jon makes an astonishing discovery. On the other side "
+"of the Strait, a threat that was thought extinct forever reborn."
+msgstr ""
+"Dans la capitale, le nouveau roi ainsi que ses conseillers font face au défi "
+"de reconstruire Port-Réal et de satisfaire la population survivante. Dans "
+"les autres royaumes Westerosiens, les rancœurs sont loin de s‘être apaisées. "
+"Les souverains des Îles de Fer et du Bief concluent une alliance et "
+"complotent contre la Couronne. Sansa, Gendry et Edmure tentent d’asseoir "
+"respectivement leur autorité dans le Nord, les Terres de l’Orage et le "
+"Conflans. Dans le Val, Robin Arryn devient, contre toute attente un guerrier "
+"redoutable et respecté. Arianne Martell prend le pouvoir à Dorne. Au-delà du "
+"Mur, Jon fait une étonnante découverte. De l‘autre côté du Détroit, une "
+"menace que l‘on pensait éteinte à jamais renait."
+
+#: wikibsteros/constants.py:26
+msgid ""
+"Game of Thrones alternative scenario Season 9 Episode 1 : The Eternal Winter"
+msgstr ""
+"Game of Thrones scénario alternatif Saison 9 Épisode 1 : L'hiver éternel"
+
+#: wikibsteros/database.py:153
+msgid ""
+"Maester Wolkan surprises Darren Blackmyre stealing a book from the "
+"library.                                                        He tries to "
+"find the little boy in the sacred wood but the maester is finally found "
+"hanged on the tree-heart, his body mutilated."
+msgstr ""
+"Mestre Wolkan surprend Darren Blackmyre en train de voler un livre de la "
+"bibliothèque.                                                        Il "
+"tente néanmoins  de retrouver le petit garçon dans le bois sacré mais le "
+"mestre est finalement retrouvépendu à l'arbre-cœur de Winterfell, mutilé à "
+"plusieurs reprises par un mystérieux assassin."
+
+#: wikibsteros/database.py:219
+msgid "Continental Capital"
+msgstr "Capitale continentale"
+
+#: wikibsteros/database.py:292
+msgid "Castleblack"
+msgstr "Châteaunoir"
+
+#: wikibsteros/database.py:292
+msgid "Winterfell"
+msgstr "Winterfell"
+
+#: wikibsteros/database.py:293
+msgid "Eastwatch-by-the-Sea"
+msgstr "Fort-Levant"
+
+#: wikibsteros/database.py:294
+msgid "Whiteharbor"
+msgstr "Blancport"
+
+#: wikibsteros/database.py:294
+msgid "The Eyrie"
+msgstr "Les Eyrié"
+
+#: wikibsteros/database.py:295
+msgid "Gulltown"
+msgstr "Goëville"
+
+#: wikibsteros/database.py:295
+msgid "The Twins"
+msgstr "Les Jumeaux"
+
+#: wikibsteros/database.py:296
+msgid "Riverrun"
+msgstr "Le Conflans"
+
+#: wikibsteros/database.py:296
+msgid "Pyke"
+msgstr "Pyke"
+
+#: wikibsteros/database.py:297
+msgid "King‘s Landing"
+msgstr "Port-Réal"
+
+#: wikibsteros/database.py:297
+#, fuzzy
+#| msgid "Pyk, Casterly Rock, Oldtown"
+msgid "Casterly Rock"
+msgstr "Pyk, Castral Roc, Villevieille"
+
+#: wikibsteros/database.py:298
+msgid "Storm‘s End"
+msgstr "Accalmie"
+
+#: wikibsteros/database.py:298
+msgid "Highgarden"
+msgstr "Hautjardin"
+
+#: wikibsteros/database.py:299
+msgid "Oldtown"
+msgstr "Villevieille"
+
+#: wikibsteros/database.py:299
+msgid "Sunspear"
+msgstr "Lancehélion"
+
+#: wikibsteros/database.py:300
+msgid "Water Gardens"
+msgstr "Les Jardins Aquatiques"
+
+#: wikibsteros/database.py:300
+msgid "Hellholt"
+msgstr "Denfert"
+
+#: wikibsteros/forms.py:12 wikibsteros/forms.py:19
+msgid "Username"
+msgstr "Nom d‘utilisateur"
+
+#: wikibsteros/forms.py:14 wikibsteros/forms.py:23
+msgid "Password"
+msgstr "Mot de passe"
+
+#: wikibsteros/forms.py:40
+msgid "Your e-mail"
+msgstr "Votre e-mail"
+
+#: wikibsteros/forms.py:44
+msgid "Subject"
+msgstr "Objet"
+
+#: wikibsteros/forms.py:46
+msgid "Your message"
+msgstr "Votre message"
+
+#: wikibsteros/forms.py:52
+msgid "Type your message"
+msgstr "Tapez votre message"
+
+#: wikibsteros/forms.py:57
+msgid "👨 CHOOSE A GENDER 👩"
+msgstr "👨 CHOISISSEZ VOTRE SEXE 👩"
+
+#: wikibsteros/forms.py:57
+msgid "Male"
+msgstr "Homme"
+
+#: wikibsteros/forms.py:57
+msgid "Female"
+msgstr "Femme"
+
+#: wikibsteros/other_functions.py:34
+msgid "Bronn‘s house of Highgarden"
+msgstr "Maison de Bronn"
+
+#: wikibsteros/other_functions.py:36
+#, fuzzy
+#| msgid ""
+#| "First of His Name, King of the Andals and the First Men, Protector of the "
+#| "Seven Kingdoms"
+msgid ""
+"First of His Name, King of the Andals and the First Men, "
+"Protector                     of the Seven Kingdoms"
+msgstr ""
+"Premier du Nom, Roi des Andals et des Premiers Hommes, Protecteur des Sept "
+"Couronnes"
+
+#: wikibsteros/other_functions.py:37
+msgid "The Kingdom of the North"
+msgstr "Le Royaume du Nord"
+
+#: wikibsteros/other_functions.py:38
+msgid "The Principality of Dorne"
+msgstr "La Principauté de Dorne"
+
+#: wikibsteros/other_functions.py:38 wikibsteros/templates/weather.html:81
+msgid "The Riverlands"
+msgstr "Le Conflans"
+
+#: wikibsteros/other_functions.py:39 wikibsteros/templates/weather.html:186
+msgid "The Westerlands"
+msgstr "Les Terres de l‘Ouest"
+
+#: wikibsteros/other_functions.py:39
+msgid "The Salt Throne"
+msgstr "Le Trône de Sel"
+
+#: wikibsteros/other_functions.py:40
+msgid "The Kingdom of the Stormlands"
+msgstr "Les Terres de l‘Orage"
+
+#: wikibsteros/other_functions.py:40
+msgid "Kingdom of Mountain and Vale"
+msgstr "Le Val d‘Arryn"
+
+#: wikibsteros/other_functions.py:63
+msgid "----- CHOOSE A REGION -----"
+msgstr "----- CHOISIR UNE RÉGION -----"
+
+#: wikibsteros/other_functions.py:80
+msgid "----- CHOOSE A HOUSE -----"
+msgstr "----- CHOISIR UNE ALLÉGEANCE -----"
+
+#: wikibsteros/other_functions.py:97
+msgid " CHOOSE A CHARACTER"
+msgstr " CHOISIR UN PERSONNAGE"
+
+#: wikibsteros/templates/article.html:56 wikibsteros/templates/articles.html:60
+#: wikibsteros/templates/index.html:145
+msgid "Like"
+msgstr "J‘aime"
+
+#: wikibsteros/templates/article.html:62
+#: wikibsteros/templates/character.html:109 wikibsteros/templates/city.html:22
+msgid "Comments"
+msgstr "Commentaires"
+
+#: wikibsteros/templates/article.html:69
+#: wikibsteros/templates/character.html:116 wikibsteros/templates/city.html:29
+msgid "By"
+msgstr "Par"
+
+#: wikibsteros/templates/article.html:82
+#: wikibsteros/templates/character.html:268 wikibsteros/templates/city.html:92
+msgid "Post a comment"
+msgstr "Poster un commentaire"
+
+#: wikibsteros/templates/article.html:85 wikibsteros/templates/city.html:95
+msgid "Submit"
+msgstr "Envoi"
+
+#: wikibsteros/templates/article.html:88
+#: wikibsteros/templates/character.html:274 wikibsteros/templates/city.html:98
+msgid "You must be logged in to post a comment"
+msgstr "Vous devez être connecté(e) pour pouvoir poster un commentaire"
+
+#: wikibsteros/templates/articles.html:56 wikibsteros/templates/index.html:141
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: wikibsteros/templates/articles.html:61 wikibsteros/templates/index.html:147
+msgid "Comment"
+msgstr "Commenter"
+
+#: wikibsteros/templates/battle.html:19
+msgid "You are : "
+msgstr "Vous êtes :"
+
+#: wikibsteros/templates/battle.html:28
+msgid "A dude !"
+msgstr "Un mec !"
+
+#: wikibsteros/templates/battle.html:39
+msgid "A girl !"
+msgstr "Une meuf !"
+
+#: wikibsteros/templates/battle.html:45
+msgid "Select only <b>four</b> cards"
+msgstr "Sélectionnez seulement <b> quatre </b> cartes"
+
+#: wikibsteros/templates/battle_result.html:10
+msgid "You won"
+msgstr "Vous avez gagné"
+
+#: wikibsteros/templates/battle_result.html:17
+msgid ""
+"Your team wins. Threat is down. Some semblance of peace\n"
+"                            has been maintained in Westeros. Congrats !\n"
+"                            "
+msgstr ""
+"Votre équipe a gagné. La menace est écartée. Un semblant de paix\n"
+"                             règne désormais sur Westeros. Félicitations !\n"
+"                            "
+
+#: wikibsteros/templates/battle_result.html:23
+msgid "You lost"
+msgstr "Vous avez perdu"
+
+#: wikibsteros/templates/battle_result.html:29
+msgid ""
+"The Night King wins.\n"
+"                            You have failed to prevent the Night King from "
+"invading Westeros.\n"
+"                            Zombie hordes swell the ranks of his army and\n"
+"                            devastate everything in its path. All kinds of "
+"life on Westeros is reduced to nothing.\n"
+"                            From now on, The Night King sits on the Iron "
+"Throne.\n"
+"                            "
+msgstr ""
+
+#: wikibsteros/templates/battle_result.html:40
+msgid "Chosen cards : "
+msgstr "Cartes choisies : "
+
+#: wikibsteros/templates/battle_result.html:55
+msgid "Battle report"
+msgstr "Rapport de bataille"
+
+#: wikibsteros/templates/battle_result.html:60
+#: wikibsteros/templates/battle_result.html:72
+#: wikibsteros/templates/battle_result.html:95
+msgid "Round"
+msgstr "Tour"
+
+#: wikibsteros/templates/battle_result.html:60
+msgid "Start"
+msgstr "Ligne de départ"
+
+#: wikibsteros/templates/battle_result.html:64
+#: wikibsteros/templates/battle_result.html:68
+#: wikibsteros/templates/battle_result.html:75
+#: wikibsteros/templates/battle_result.html:78
+#: wikibsteros/templates/battle_result.html:81
+#: wikibsteros/templates/battle_result.html:84
+#: wikibsteros/templates/battle_result.html:87
+#: wikibsteros/templates/battle_result.html:98
+#: wikibsteros/templates/battle_result.html:101
+#: wikibsteros/templates/battle_result.html:104
+#: wikibsteros/templates/battle_result.html:107
+#: wikibsteros/templates/battle_result.html:110
+msgid "HP"
+msgstr "PV"
+
+#: wikibsteros/templates/battle_result.html:66
+#: wikibsteros/templates/battle_result.html:85
+#: wikibsteros/templates/battle_result.html:108
+#, fuzzy
+#| msgid "Face the Night King"
+msgid "Night King"
+msgstr "Affrontez le Roi de la Nuit"
+
+#: wikibsteros/templates/battle_result.html:116
+msgid "Play again"
+msgstr "Rejouer"
+
+#: wikibsteros/templates/character.html:18
+msgid "Rate this character"
+msgstr "Noter ce personnage"
+
+#: wikibsteros/templates/character.html:57
+msgid "In the process of being finalized..."
+msgstr "En cours de rédaction..."
+
+#: wikibsteros/templates/character.html:60
+#: wikibsteros/templates/character.html:65
+#: wikibsteros/templates/character.html:70
+#: wikibsteros/templates/character.html:75
+#: wikibsteros/templates/character.html:80
+#: wikibsteros/templates/character.html:85
+#: wikibsteros/templates/character.html:90
+#: wikibsteros/templates/character.html:95
+msgid "Season"
+msgstr "Saison"
+
+#: wikibsteros/templates/character.html:100
+msgid "In the alternative season 9 by Websteros "
+msgstr "Dans la saison 9 alternative de Websteros "
+
+#: wikibsteros/templates/character.html:133 wikibsteros/templates/city.html:47
+msgid "Name : "
+msgstr "Nom : "
+
+#: wikibsteros/templates/character.html:134
+msgid "Gender : "
+msgstr "Sexe : "
+
+#: wikibsteros/templates/character.html:137
+msgid "Culture : "
+msgstr "Culture : "
+
+#: wikibsteros/templates/character.html:142
+msgid "Born : "
+msgstr "Naissance : "
+
+#: wikibsteros/templates/character.html:147
+msgid "Death"
+msgstr "Mort"
+
+#: wikibsteros/templates/character.html:147
+msgid "In "
+msgstr "En "
+
+#: wikibsteros/templates/character.html:147
+msgid "AC"
+msgstr "AC"
+
+#: wikibsteros/templates/character.html:151
+msgid "Age of death"
+msgstr "Âge de la mort"
+
+#: wikibsteros/templates/character.html:157
+msgid "Played by"
+msgstr "Joué par"
+
+#: wikibsteros/templates/character.html:162
+msgid "Father"
+msgstr "Père"
+
+#: wikibsteros/templates/character.html:173
+msgid "Mother"
+msgstr "Mère"
+
+#: wikibsteros/templates/character.html:180
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: wikibsteros/templates/character.html:186
+msgid "Siblings"
+msgstr "Frères et sœurs"
+
+#: wikibsteros/templates/character.html:195
+#: wikibsteros/templates/character.html:198
+msgctxt "spouse female"
+msgid "Spouse"
+msgstr "Épouse"
+
+#: wikibsteros/templates/character.html:203
+#: wikibsteros/templates/character.html:206
+msgctxt "spouse male"
+msgid "Spouse"
+msgstr "Époux"
+
+#: wikibsteros/templates/character.html:215
+msgid "Lovers"
+msgstr "Amants"
+
+#: wikibsteros/templates/character.html:227
+msgid "Last known location"
+msgstr "Dernière localisation connue"
+
+#: wikibsteros/templates/character.html:242
+#, fuzzy
+#| msgid "Get a random city"
+msgid "Get a random character"
+msgstr "Une ville au hasard"
+
+#: wikibsteros/templates/city.html:15
+msgctxt "Story"
+msgid "History"
+msgstr "Histoire"
+
+#: wikibsteros/templates/city.html:17
+msgid "Geography"
+msgstr "Géographie"
+
+#: wikibsteros/templates/city.html:19
+msgid "Population"
+msgstr "Démographie"
+
+#: wikibsteros/templates/city.html:49
+msgid "Type : "
+msgstr "Statut : "
+
+#: wikibsteros/templates/city.html:51
+msgid "Location : "
+msgstr "Localisation : "
+
+#: wikibsteros/templates/city.html:54 wikibsteros/templates/city.html:56
+#: wikibsteros/templates/city.html:60
+msgid "Population : "
+msgstr "Population : "
+
+#: wikibsteros/templates/city.html:56 wikibsteros/templates/city.html:57
+#: wikibsteros/templates/city.html:60 wikibsteros/templates/universe.html:42
+msgid "inhabitants"
+msgstr "habitants"
+
+#: wikibsteros/templates/city.html:56
+msgid "(before The battle of King's Landing)"
+msgstr "(avant le siège de Port-Réal)"
+
+#: wikibsteros/templates/city.html:57
+msgid "(at present)"
+msgstr "(actuellement)"
+
+#: wikibsteros/templates/city.html:58 wikibsteros/templates/city.html:61
+msgid "(Ranked "
+msgstr "(Classée"
+
+#: wikibsteros/templates/city.html:70
+msgid "Get a random city"
+msgstr "Une ville au hasard"
+
+#: wikibsteros/templates/footer.html:15
+msgid "Guest"
+msgstr "Invité"
+
+#: wikibsteros/templates/footer.html:20
+msgid "Online"
+msgstr "En ligne"
+
+#: wikibsteros/templates/footer.html:24 wikibsteros/templates/index.html:244
+#: wikibsteros/templates/index.html:491
+msgid "Websteros chat room"
+msgstr "Websteros le tchat"
+
+#: wikibsteros/templates/index.html:63
+msgid "Dornish Oasis"
+msgstr "L‘Oasis Dornienne"
+
+#: wikibsteros/templates/index.html:67
+msgid "Search Wikibsteros..."
+msgstr "Rechercher dans Wikibsteros..."
+
+#: wikibsteros/templates/index.html:96
+msgid "Discover Game of Thrones History"
+msgstr "Découvrez l'histoire de Game of Thrones"
+
+#: wikibsteros/templates/index.html:105
+msgid "Latest <kbd>posts</kbd>"
+msgstr "Derniers <kbd>posts</kbd>"
+
+#: wikibsteros/templates/index.html:106
+msgid "View all the <kbd>articles</kbd>"
+msgstr "Voir tous les <kbd>articles</kbd>"
+
+#: wikibsteros/templates/index.html:136
+#, python-format
+msgid ""
+"\n"
+"              %(content)s\n"
+"              "
+msgstr ""
+
+#: wikibsteros/templates/index.html:164 wikibsteros/templates/index.html:361
+msgid "Create an account"
+msgstr "Créer un compte"
+
+#: wikibsteros/templates/index.html:166
+msgid ""
+"Appeal to the Melisandre's powerful magic to create an account and enjoy all "
+"the features of Websteros"
+msgstr ""
+"Faites appel à la puissante magie de Mélisandre pour créer un compte et "
+"bénéficier de toutes les fonctionnalités de Websteros"
+
+#: wikibsteros/templates/index.html:185
+msgid "Consult weather forecasts"
+msgstr "Consulter la météo"
+
+#: wikibsteros/templates/index.html:187
+msgid ""
+"Snowstorm expected to hit the North. Cloudy weather with sunny spells on the "
+"whole of the Crownlands. Heatwave warnings issued in the Dornish desert..."
+"Get the Westeros weather forecast."
+msgstr ""
+"Tempête de neige prévue dans le Nord. Éclaircies présentes sur les Terres de "
+"la Couronne. Alerte canicule déclenchée dans le désert Dornien...Découvrez "
+"nos dernières prévisions météorologiques."
+
+#: wikibsteros/templates/index.html:205
+msgid "Face the Night King"
+msgstr "Affrontez le Roi de la Nuit"
+
+#: wikibsteros/templates/index.html:207
+msgid ""
+"Gather your forces and make the right strategic choices to save Westeros "
+"from Night King's ill-fated designs."
+msgstr ""
+"Rassemblez vos forces et faites les bons choix stratégiques pour sauver "
+"Westeros des desseins funestes du Roi de la Nuit."
+
+#: wikibsteros/templates/index.html:225 wikibsteros/templates/maggy.html:34
+msgid "Maggy the Frog"
+msgstr "Maggy la Grenouille"
+
+#: wikibsteros/templates/index.html:227
+msgid "Discover your daily Horoscope thanks to Maggy the Frog."
+msgstr "Découvrez votre horoscope quotidien avec Maggy la Grenouille"
+
+#: wikibsteros/templates/index.html:246
+msgid ""
+"Join our ranks and chat in real time with other players. Required "
+"Registration. Have fun !"
+msgstr ""
+"Rejoignez nos rangs et discutez en temps réel avec d'autres joueurs. "
+"L‘inscription est requise. Amusez-vous bien !"
+
+#: wikibsteros/templates/index.html:261
+msgid "Current situation of the Crowns"
+msgstr "Situation dans les couronnes"
+
+#: wikibsteros/templates/index.html:262
+msgid "Currently sits on the <b> Iron Throne </b>"
+msgstr "Actuellement sur le <b> Trône de Fer </b>"
+
+#: wikibsteros/templates/index.html:272 wikibsteros/templates/index.html:289
+#: wikibsteros/templates/index.html:310
+msgid " of the House "
+msgstr " de la Maison "
+
+#: wikibsteros/templates/index.html:273
+msgid ""
+"First of His Name, King of the Andals and the First Men, Protector of the "
+"Seven Kingdoms"
+msgstr ""
+"Premier du Nom, Roi des Andals et des Premiers Hommes, Protecteur des Sept "
+"Couronnes"
+
+#: wikibsteros/templates/index.html:274 wikibsteros/templates/index.html:293
+#: wikibsteros/templates/index.html:314
+msgid "for"
+msgstr "depuis"
+
+#: wikibsteros/templates/index.html:275 wikibsteros/templates/index.html:294
+#: wikibsteros/templates/index.html:315
+msgid "days"
+msgstr "jours"
+
+#: wikibsteros/templates/index.html:291 wikibsteros/templates/index.html:312
+msgid "currently reigning over"
+msgstr "régnant actuellement sur"
+
+#: wikibsteros/templates/index.html:332
+msgid "You are logged in as"
+msgstr "Vous etes connecté(e) en tant que"
+
+#: wikibsteros/templates/index.html:333
+msgid "Contact Us"
+msgstr "Contactez-nous !"
+
+#: wikibsteros/templates/index.html:340 wikibsteros/templates/maggy.html:61
+msgid "&nbsp Send &nbsp"
+msgstr "&nbsp Envoi &nbsp"
+
+#: wikibsteros/templates/index.html:347
+msgid "Login &nbsp&nbsp&nbsp"
+msgstr "Connexion &nbsp&nbsp&nbsp"
+
+#: wikibsteros/templates/index.html:354
+msgid "&nbsp Login &nbsp"
+msgstr "&nbsp Connexion &nbsp"
+
+#: wikibsteros/templates/index.html:383
+msgid "I am not a White Walker"
+msgstr "Je ne suis pas un Marcheur Blanc"
+
+#: wikibsteros/templates/index.html:392
+msgid "Register"
+msgstr "S‘inscrire"
+
+#: wikibsteros/templates/index.html:432
+msgid "About us"
+msgstr "À propos"
+
+#: wikibsteros/templates/index.html:436
+msgid "Address"
+msgstr "Adresse"
+
+#: wikibsteros/templates/index.html:438
+msgid "FRANCE 🇫🇷"
+msgstr "FRANCE 🇫🇷"
+
+#: wikibsteros/templates/index.html:449
+msgid "Find us on"
+msgstr "Retrouvez-nous sur"
+
+#: wikibsteros/templates/index.html:525
+msgid "Send"
+msgstr "Envoi"
+
+#: wikibsteros/templates/little-nav.html:9 wikibsteros/templates/nav.html:5
+msgid "Home"
+msgstr "Accueil"
+
+#: wikibsteros/templates/little-nav.html:12 wikibsteros/templates/nav.html:6
+msgid "Universe"
+msgstr "Univers"
+
+#: wikibsteros/templates/little-nav.html:38
+msgid "Look for something"
+msgstr "Chercher quelque chose"
+
+#: wikibsteros/templates/little-nav.html:39
+msgid "Search"
+msgstr "Rechercher"
+
+#: wikibsteros/templates/maggy.html:43
+msgid ""
+"\n"
+"                        <ul style=\"line-height: 2; list-style-type:none\">\n"
+"                            <li>Hello, I am <mark> Maggy the Frog</mark>.</"
+"li>\n"
+"                            <li>I'm a <mark>clairvoyant witch</mark>. I can "
+"read your future. </li>\n"
+"                            <li>For this reason, <mark>let me taste your "
+"blood</mark>.</li>\n"
+"                            <li>You just have to pick <mark>your favorite "
+"character from Game of Thrones</mark> in the\n"
+"                                list below, and <mark>your gender</mark>. </"
+"li>\n"
+"                            <li>So I could determine <mark>your personality, "
+"your qualities, your faults</mark> (You got\n"
+"                                plenty !), and predict your future. </li>\n"
+"                            <li>But be careful, <mark>you may not like the "
+"answers</mark>...</li>\n"
+"                        </ul>\n"
+"                        "
+msgstr ""
+
+#: wikibsteros/templates/nav.html:20
+msgid "Profile"
+msgstr "Profil"
+
+#: wikibsteros/templates/nav.html:22
+msgid "Logging off"
+msgstr "Déconnexion"
+
+#: wikibsteros/templates/nav.html:30
+msgid "Authentication"
+msgstr "Authentification"
+
+#: wikibsteros/templates/test_i18n.html:10
+msgid "Contact us !"
+msgstr "Contactez-nous !"
+
+#: wikibsteros/templates/test_i18n.html:15 wikibsteros/views.py:465
+msgid "Bonjour les nouveaux !"
+msgstr ""
+
+#: wikibsteros/templates/universe.html:11
+msgid "TOP 3 characters"
+msgstr "TOP 3 personnages"
+
+#: wikibsteros/templates/universe.html:29
+msgid "TOP 3 cities"
+msgstr "TOP 3 villes"
+
+#: wikibsteros/templates/universe.html:48
+msgid "TOP 3 houses"
+msgstr "TOP 3 maisons"
+
+#: wikibsteros/templates/weather.html:10
+msgid "The North"
+msgstr "Le Nord"
+
+#: wikibsteros/templates/weather.html:21 wikibsteros/templates/weather.html:57
+#: wikibsteros/templates/weather.html:92 wikibsteros/templates/weather.html:127
+#: wikibsteros/templates/weather.html:162
+#: wikibsteros/templates/weather.html:196
+#: wikibsteros/templates/weather.html:229
+#: wikibsteros/templates/weather.html:263
+#: wikibsteros/templates/weather.html:299
+#: wikibsteros/templates/weather.html:334
+#: wikibsteros/templates/weather.html:365
+#: wikibsteros/templates/weather.html:396
+msgid "Temperature"
+msgstr "Température"
+
+#: wikibsteros/templates/weather.html:25 wikibsteros/templates/weather.html:61
+#: wikibsteros/templates/weather.html:96 wikibsteros/templates/weather.html:131
+#: wikibsteros/templates/weather.html:166
+#: wikibsteros/templates/weather.html:200
+#: wikibsteros/templates/weather.html:233
+#: wikibsteros/templates/weather.html:267
+#: wikibsteros/templates/weather.html:303
+#: wikibsteros/templates/weather.html:338
+#: wikibsteros/templates/weather.html:369
+#: wikibsteros/templates/weather.html:400
+msgid "Weather"
+msgstr "Temps"
+
+#: wikibsteros/templates/weather.html:28 wikibsteros/templates/weather.html:64
+#: wikibsteros/templates/weather.html:99 wikibsteros/templates/weather.html:134
+#: wikibsteros/templates/weather.html:169
+#: wikibsteros/templates/weather.html:203
+#: wikibsteros/templates/weather.html:236
+#: wikibsteros/templates/weather.html:270
+#: wikibsteros/templates/weather.html:306
+#: wikibsteros/templates/weather.html:341
+#: wikibsteros/templates/weather.html:372
+#: wikibsteros/templates/weather.html:403
+msgid "Pressure"
+msgstr "Pression"
+
+#: wikibsteros/templates/weather.html:32 wikibsteros/templates/weather.html:68
+#: wikibsteros/templates/weather.html:103
+#: wikibsteros/templates/weather.html:138
+#: wikibsteros/templates/weather.html:173
+#: wikibsteros/templates/weather.html:207
+#: wikibsteros/templates/weather.html:240
+#: wikibsteros/templates/weather.html:274
+#: wikibsteros/templates/weather.html:310
+#: wikibsteros/templates/weather.html:345
+#: wikibsteros/templates/weather.html:376
+#: wikibsteros/templates/weather.html:407
+msgid "Humidity"
+msgstr "Humidité"
+
+#: wikibsteros/templates/weather.html:36 wikibsteros/templates/weather.html:72
+#: wikibsteros/templates/weather.html:107
+#: wikibsteros/templates/weather.html:142
+#: wikibsteros/templates/weather.html:177
+#: wikibsteros/templates/weather.html:211
+#: wikibsteros/templates/weather.html:244
+#: wikibsteros/templates/weather.html:278
+#: wikibsteros/templates/weather.html:314
+#: wikibsteros/templates/weather.html:349
+#: wikibsteros/templates/weather.html:380
+#: wikibsteros/templates/weather.html:411
+msgid "Wind speed"
+msgstr "Vent"
+
+#: wikibsteros/templates/weather.html:46
+msgid "The Vale of Arryn"
+msgstr "Val d‘Arryn"
+
+#: wikibsteros/templates/weather.html:116
+msgid "The Iron Islands"
+msgstr "Les Îles de Fer"
+
+#: wikibsteros/templates/weather.html:219
+msgid "The Stormlands"
+msgstr "Les Terres de l‘Orage"
+
+#: wikibsteros/templates/weather.html:288
+msgid "Dorne"
+msgstr "Dorne"
+
+#: wikibsteros/templates/weather.html:323
+msgid "Essos"
+msgstr "Essos"
+
+#: wikibsteros/views.py:78
+msgid "Pyk, Casterly Rock, Oldtown"
+msgstr "Pyk, Castral Roc, Villevieille"
+
+#: wikibsteros/views.py:79
+msgid "Sunspear, Dragonstone, Storm‘s End"
+msgstr "Lancehélion, Peyredragon, Accalmie"
+
+#: wikibsteros/views.py:80
+msgid "Highgarden, Riverrun, The Twins, Winterfell"
+msgstr "Hautjardin, Vivesaigues, Les Jumeaux, Winterfell"
+
+#: wikibsteros/views.py:81
+msgid "King‘s Landings, The Eyrie, Castleblack"
+msgstr "Port-Réal, Les Eyrié, Châteaunoir"
+
+#: wikibsteros/views.py:222
+msgid "Your account has been successfully created. You can now log in."
+msgstr "Votre compte a été créé. Vous pouvez vous connecter."
+
+#: wikibsteros/views.py:225
+msgid "Oops. It seems that something gets wrongs."
+msgstr "Oups. Il semble que quelque chose n'ait pas fonctionné."
+
+#: wikibsteros/views.py:228
+msgid "It seems that the captcha has not been validated."
+msgstr "Il semble que le captcha n'ait pas été validé."
+
+#: wikibsteros/views.py:236
+msgid "Your email has been sent."
+msgstr "Votre email a été envoyé."
+
+#: wikibsteros/views.py:286
+msgid ""
+"Sorry, but you‘ve already voted for this character.             Votes are "
+"limited to one character per account."
+msgstr ""
+"Désolé, mais vous avez déjà voté pour ce personnage. Les votes sontlimités à "
+"un personnage par compte."
+
+#: wikibsteros/views.py:319
+msgid "Sorry, but it seems to be an invalid request"
+msgstr "Désolé, mais il semble que la requête soit invalide"
+
+#: wikibsteros/views.py:427
+msgid "Sorry, but you need to select four cards. Try again."
+msgstr "Désolé mais vous devez sélectionner quatre cartes. Réessayez."
+
+#: wikibsteros/views.py:452
+#, python-format
+msgid "J'ai un %(animal)s %(col)s."
+msgstr ""
+
+#: wikibsteros/views.py:454
+#, python-format
+msgid "… et selon mes informations, vous avez %(nb)s chat %(col)s !"
+msgid_plural "… et selon mes informations, vous avez %(nb)s chats %(col)ss !"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wikibsteros/views.py:457
+msgctxt "verbe 'avoir'"
+msgid "as"
+msgstr ""
+
+#: wikibsteros/views.py:458
+msgctxt "carte de jeu"
+msgid "as"
+msgstr ""
+
+#: wikibsteros/views.py:459
+#, python-format
+msgid "%(suj)s %(ver)s : %(val)s %(col)s"
+msgstr ""
+
+#: wikibsteros/views.py:460
+msgid "tu"
+msgstr ""
+
+#: wikibsteros/views.py:463
+msgid "de trèfle"
+msgstr ""
+
+#~| msgid "King‘s Landing"
+#~ msgid "King's Landing"
+#~ msgstr "Port-Réal"
+
+#, fuzzy
+#~| msgid "Websteros chat room"
+#~ msgid "Websteros Chatroom"
+#~ msgstr "Websteros le tchat"
+
+#, fuzzy
+#~| msgid " of the House "
+#~ msgid "of the House"
+#~ msgstr " de la Maison "
+
+#~ msgid "Login"
+#~ msgstr "Connexion"
+
+#~ msgid "Hi newies !"
+#~ msgstr "Bonjour les nouveaux !"

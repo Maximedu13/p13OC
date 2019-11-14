@@ -1,0 +1,28 @@
+{% load i18n %}
+<p>
+        Bonjour les nouveaux !<br />
+        {{ chaine }}
+      </p>
+      <p>
+        {{ ip }} {{ infos }}
+      </p>
+
+      <h2>{% trans "Contact us !" %}</h2>
+<p>{% trans ma_variable %}</p>
+
+<h1>Changer de langue</h1>
+
+{% trans "Bonjour les nouveaux !" %}
+
+<form action="/i18n/setlang/" method="post">
+    {% csrf_token %}
+    <input name="" type="hidden" value="{% url 'index' %}" />
+    
+    <select name="language">
+    {% for lang in LANGUAGES %}
+        <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+    {% endfor %}
+    </select>
+
+    <input type="submit" />
+</form>

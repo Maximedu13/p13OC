@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+{% include 'head.html' %}
+{% include 'little-nav.html' %}
+{% load humanize %}
+{% autoescape off %}
+<section class="bg-light">
+    <div style="padding-top:50px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                {% if user.is_authenticated %}
+                <form action="{% url 'wikibsteros:add_a_vote' this_character.id %}" method='POST' name="full-stars">
+                    {% csrf_token %}
+                    <div id="full-stars-example">
+                        <div class="rating-group" title="{% trans 'Rate this character' %}">
+                            <label aria-label="1 star" class="rating__label" for="rating-1"><i
+                                    class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating" id="rating-1" value="1" type="radio">
+                            <label aria-label="2 stars" class="rating__label" for="rating-2"><i
+                                    class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating" id="rating-2" value="2" type="radio">
+                            <label aria-label="3 stars" class="rating__label" for="rating-3"><i
+                                    class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating" id="rating-3" value="3" type="radio" checked>
+                            <label aria-label="4 stars" class="rating__label" for="rating-4"><i
+                                    class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating" id="rating-4" value="4" type="radio">
+                            <label aria-label="5 stars" class="rating__label" for="rating-5"><i
+                                    class="rating__icon rating__icon--star fa fa-star"></i></label>
+                            <input class="rating__input" name="rating" id="rating-5" value="5" type="radio">
+
+                        </div>
+                        &nbsp
+                        {% if messages %}
+                        {% for msg in messages %}
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ msg.message }}
+                        </div>
+                        <br />
+                        {% endfor %}
+                        {% else %}
+                        <button type='submit'>Vote</button>
+                        {% endif %}
+                    </div>
+                </form>
+                {% endif %}
+                <label class="rating__label" title="{{ this_character.note|floatformat:2 }}"><i
+                        class="rating__icon rating__icon--star fa fa-star"></i></label>{{ this_character.note|floatformat:2 }}
+                <h2>{{ this_character.name }}</h2>
+
+                <hr />
+                {% if this_empty_section == True %}
+                    <small>{% trans "In the process of being finalized..." %}</small> 
+                {% endif %}
+                {% if this_character.s_1 != blank %}
+                <h5>{% trans "Season" %} {{ 1 }} </h5>
+                <hr /><small>{% trans this_character.s_1 %}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_2 != blank %}
+                <h5>{% trans "Season" %} {{ 2 }} </h5>
+                <hr /><small>{{ this_character.s_2 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_3 != blank %}
+                <h5>{% trans "Season" %} {{ 3 }} </h5>
+                <hr /><small>{{ this_character.s_3 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_4 != blank %}
+                <h5>{% trans "Season" %} {{ 4 }} </h5>
+                <hr /><small>{{ this_character.s_4 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_5 != blank %}
+                <h5>{% trans "Season" %} {{ 5 }} </h5>
+                <hr /><small>{{ this_character.s_5 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_6 != blank %}
+                <h5>{% trans "Season" %} {{ 6 }} </h5>
+                <hr /><small>{{ this_character.s_6 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_7 != blank %}
+                <h5>{% trans "Season" %} {{ 7 }} </h5>
+                <hr /><small>{{ this_character.s_7 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_8 != blank %}
+                <h5>{% trans "Season" %} {{ 8 }} </h5>
+                <hr /><small>{{ this_character.s_8 }}</small>
+                <div style="padding-bottom: 2em"></div>
+                {% endif %}
+                {% if this_character.s_9 != blank %}
+                <h5>{% trans "In the alternative season 9 by Websteros " %} </h5>
+                <hr /><small>{{ this_character.s_9 }}</small>
+                {% endif %}
+                <div style="padding-bottom: 2em"></div>
+                {% for i in books %}
+                <h5>{{ i }}</h5>
+                <hr />
+                {% endfor %}
+                <h5><a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">{% trans "Comments" %}({{ number_of_comments }})</a></h5>
+                <div class="collapse" id="collapseExample">
+                    {% for c in comments %}
+                    <div class="card card-body">
+                        <b>{{ c.message }}</b>
+                        <br />
+                        <small>
+                            {% trans "By" %} <em>{% return_char c.user_id %}</em>
+                            <br />
+                            {{ c.created }}</small>
+                    </div>
+                    <br />
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-4">
+                <ul class="list-group text-center bg-danger rounded" style="list-style-type: none; line-height: 2">
+                    {% if not this_character.image %}
+                    <li><img src="{% static 'wikibsteros/img/unknown.jpeg' %}" style="width: 100%" class="rounded"></li>
+                    {% else %}
+                    <li><img src="{{ this_character.image }}" style="width: 100%" class="rounded"></li>
+                    {% endif %}
+
+                    <div style="padding-bottom: 0.5em"></div>
+                    <li>{% trans "Name : " %}{{ this_character.name }}</li>
+                    <li>{% trans "Gender : " %}{% trans this_character.gender|title %}</li>
+                    {% if this_character.culture and this_character.culture != "['']" %}
+                    <li>
+                        {% trans "Culture : " %} {% trans this_character.culture|cut:"["|cut:"]"|cut:"'" %}
+                    </li>
+                    {% endif %}
+                    {% if this_character.born %}
+                    <li>
+                        {% trans "Born : " %}{{ this_character.born }}
+                    </li>
+                    {% endif %}
+                    {% if this_character.died and this_character.alive == False %}
+                    <li>
+                        {% trans "Death" %} : {% trans "In " %}{{ this_character.died }} {% trans "AC" %}
+                    </li>
+                    {% if this_character.age != 0 %}
+                    <li>
+                        {% trans "Age of death" %} : {{ this_character.age }}
+                    </li>
+                    {% endif %}
+                    {% endif %}
+                    {% if this_character.playedBy and  this_character.playedBy != "['']" %}
+                    <li>
+                        {% trans "Played by" %} : {{ this_character.playedBy|cut:"["|cut:"]"|cut:"'" }}
+                    </li>
+                    {% endif %}
+                    {% if this_character.father %}
+                    {% get_the_id_from_the_character this_character.father as father %}
+                    <li>{% trans "Father" %} :
+                        {% if father %}
+                        <a href="{% url 'wikibsteros:character' father %}" style="color:blue">
+                            {% trans this_character.father %}</a>
+                        {% else %}
+                        {{ this_character.father }}
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% if this_character.mother %}
+                    {% get_the_id_from_the_character this_character.mother as mother %}
+                    <li>{% trans "Mother" %} :
+                        {% if mother and this_character.mother != "Unknown" %}
+                        <a href="{% url 'wikibsteros:character' mother %}" style="color:blue">
+                            {% trans this_character.mother %}</a>
+                        {% elif not mother and this_character.mother != "Unknown" %}
+                        {{ this_character.mother }}
+                        {% else %}
+                        {% trans "Unknown" %}
+                        {% endif %}
+                    </li>
+                    {% endif %}
+
+                    {% if this_character.siblings and this_character.siblings != "[]" %}
+                    <li>{% trans "Siblings" %} : {{ this_character.siblings|cut:"["|cut:"]"|cut:"'" }}
+
+                    </li>
+                    {% endif %}
+                    {% if this_character.spouse and this_character.spouse != "[]" %}
+                        
+                        {% if this_character.gender == "male" %}
+                            {% get_the_id_from_the_character this_character.spouse|cut:"["|cut:"]"|cut:"'" as spouse %}
+                            {% if spouse != None %}
+                            <li>{% trans "Spouse" context "spouse female" %} : <a href="{% url 'wikibsteros:character' spouse  %}" style="color:blue">
+                            {{ this_character.spouse|cut:"["|cut:"]"|cut:"'" }}</a></li>
+                            {% else %}
+                            <li>{% trans "Spouse" context "spouse female" %} : {{ this_character.spouse|cut:"["|cut:"]"|cut:"'" }}</li>
+                            {% endif %}
+                        {% else %}
+                            {% get_the_id_from_the_character this_character.spouse|cut:"["|cut:"]"|cut:"'" as spouse %}
+                            {% if spouse != None %}
+                            <li>{% trans "Spouse" context "spouse male" %} : <a href="{% url 'wikibsteros:character' spouse  %}" style="color:blue">
+                            {{ this_character.spouse|cut:"["|cut:"]"|cut:"'" }}</a></li>
+                            {% else %}
+                            <li>{% trans "Spouse" context "spouse male" %} : {{ this_character.spouse|cut:"["|cut:"]"|cut:"'" }}</li>
+                            {% endif %}
+
+                        {% endif %}
+
+                        
+                    {% endif %}
+                    {% if this_character.lovers and this_character.lovers != "[]" %}
+                    {% get_the_id_from_the_character this_character.lovers|cut:"["|cut:"]"|cut:"'" as lover %}
+                    <li>{% trans "Lovers" %} :
+                        {% if lover %}
+                        <a href="{% url 'wikibsteros:character' lover %}" style="color:blue">
+                            {% trans this_character.lovers|cut:"["|cut:"]"|cut:"'" %}</a>
+                        {% else %}
+                        {{ this_character.lovers|cut:"["|cut:"]"|cut:"'" }}
+                        {% endif %}
+                    </li>
+                    {% endif %}
+
+                    {% if this_character.location %}
+                    {% get_the_id_from_the_city_name this_character.location as loc %}
+                    <li>{% trans "Last known location" %} :
+                        {% if loc %}
+                        <a href="{% url 'wikibsteros:city' loc %}" style="color:blue">
+                            {% endif %}
+                            {% trans this_character.location %}</a></li>
+                    {% endif %}
+                </ul>
+
+
+            </div>
+            <div class="container">
+                <div style="padding-bottom: 4em"></div>
+                <div class="row text-center">
+                    <div class="col">
+                        <p><a
+                                href="{% url 'wikibsteros:character' random_character %}">{% trans "Get a random character" %}</a>
+                        </p>
+                    </div>
+                    <div class="col">
+                        {% if previous.name %}
+                        <p><a href="{% url 'wikibsteros:character' this_character.id|add:'-1' %}">←
+                                {% trans previous.name %}
+                            </a></p>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        {% if next.name %}
+                        <p><a href="{% url 'wikibsteros:character' this_character.id|add:'1' %}">{% trans next.name %}
+                                →</a>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div style="padding-bottom: 1em"></div>
+            </div>
+            <div class="container w-50">
+                <!-- CHANGE THE URL HERE -->
+                <form action="{% url 'wikibsteros:add_a_comment_character' this_character.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" id="message" rows="5"
+                            placeholder="{% trans 'Post a comment' %}" required></textarea>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    {% else %}
+                    <div class="alert alert-danger te" role="alert">
+                        {% trans "You must be logged in to post a comment" %}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div style="padding-bottom: 2em"></div>
+</section>
+{% endautoescape %}
+{% include 'footer.html' %}

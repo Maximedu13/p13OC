@@ -1,0 +1,46 @@
+{% load static %}
+{% load i18n %}
+<!-- Footer -->
+
+
+<footer class="bg-black small text-center text-white-50">
+    <div class="container rounded p-4">
+        <div class=" row">
+            <div class="col-sm">
+                {% if user.is_authenticated %}
+                <img src="{% static 'wikibsteros/img/304286.svg' %}">
+                <span>{{ user.username }}</span>
+                {% else %}
+                <img src="{% static 'wikibsteros/img/304323.svg' %}">
+                <span>{% trans "Guest" %}</span>
+                {% endif %}
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'wikibsteros/img/304286.svg' %}">
+                {% trans "Online" %}({{ number_of_active_users }})
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'wikibsteros/img/304286.svg' %}">
+                <span>{% trans "Websteros chat room" %}</span>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container p-5">
+        Copyright &copy; Websteros 2019
+    </div>
+
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'wikibsteros/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'wikibsteros/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<!-- Plugin JavaScript -->
+<script src="{% static 'wikibsteros/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- Custom scripts for this template -->
+<script src="{% static 'wikibsteros/js/grayscale.min.js' %}"></script>
+<script src="{% static 'wikibsteros/js/index.js' %}"></script>
